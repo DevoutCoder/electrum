@@ -290,8 +290,6 @@ extern PyMODINIT_FUNC PyInit__cffi_backend(void);
         tmp_path = [NSString stringWithFormat:@"TMP=%@/tmp", resourcePath, nil];
         putenv((char *)[tmp_path UTF8String]);
         NSLog(@"Initializing Python runtime...");
-        PyImport_AppendInittab("_cffi_backend", &PyInit__cffi_backend);
-
         Py_Initialize();
         // If other modules are using threads, we need to initialize them.
         PyEval_InitThreads();
