@@ -77,6 +77,7 @@
     
     PyObject * pModule = PyImport_ImportModule(fileName);//Python文件名
     if (!pModule) {
+        PyErr_Print();
         [self p_handleWithError:[self p_errorMsg:@"导入module出错,请重试"]];
         return NO;
     }
